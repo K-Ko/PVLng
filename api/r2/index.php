@@ -400,6 +400,11 @@ $app->put('/csv/:guid', $APIkeyRequired, $accessibleChannel, function($guid) use
                 default:
                     throw new Exception('Invalid batch data: '.$dataset, 400);
             } // switch
+            if (strlen($data) > 2) {
+                if (substr($data,0,1) == '"' && substr($data,-1) == '"') {
+                    $data= substr($data, 1, strlen($data)-2);
+                }
+            }
 
             $count += $channel->write(array('data'=>$data), $timestamp);
         }
