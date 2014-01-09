@@ -33,7 +33,7 @@ test "$TRACE" && set -x
 
 while test "$1"; do
 
-    GUID=$(echo "$1" | awk '{ match($1, "([a-z0-9]{4}-){7}[a-z0-9]{4}", a) } END { print a[0] }')
+    GUID=$(echo "$1" | sed -n 's/.*\(\([a-z0-9]\{4\}-\)\{7\}[a-z0-9]\{4\}\)\/.*\.csv/\1/p')
     test "$GUID" || error_exit "No sensor GUID in filename detected"
 
     test "$TEST" || PVLngPUT2CSV $GUID "@$1"
