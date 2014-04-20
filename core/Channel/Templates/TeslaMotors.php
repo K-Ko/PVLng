@@ -95,6 +95,8 @@ return array(
             'channel'     => 'charge_limit_soc',
             'unit'        => '%',
             'decimals'    => 0,
+            'valid_from'  => 0,
+            'valid_to'    => 100,
         ),
 
         array(
@@ -135,6 +137,8 @@ return array(
             'channel'     => 'battery_level',
             'unit'        => '%',
             'decimals'    => 0,
+            'valid_from'  => -5,
+            'valid_to'    => 105,
         ),
 
         array(
@@ -143,6 +147,8 @@ return array(
             'channel'     => 'usable_battery_level',
             'unit'        => '%',
             'decimals'    => 0,
+            'valid_from'  => -5,
+            'valid_to'    => 105,
         ),
 
         array(
